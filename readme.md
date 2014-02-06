@@ -2,7 +2,7 @@
 
 ## How to install 
 1. npm install -g meteorite (if not already installed)
-2. git clone https://github.com/bevanhunt/bcclinics
+2. git clone https://github.com/bevanhunt/bcclinics.git
 3. cd bcclinics
 4. mrt
 5. open browser to http://localhost:3000

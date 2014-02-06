@@ -6,7 +6,7 @@ createMarkers = ->
     console.log library
     lat = library.lat
     lng = library.lng
-    popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postal}<br>#{library.phone}"
+    popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postal}<br>#{library.phone}<br><a href='#{library.link}' target='_blank'>More Info</a>"
     markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
   window.map.addLayer(markers)
   window.markers.push(markers)
@@ -48,7 +48,7 @@ Template.search_city.events
     libraries.forEach (library) ->
       lat = library.lat
       lng = library.lng
-      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postal}<br>#{library.phone}"
+      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postal}<br>#{library.phone}<br><a href='#{library.link}' target='_blank'>More Info"
       L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
   'click #reset_button': ->
     # clear all markers
@@ -60,7 +60,7 @@ Template.search_city.events
     Libraries.find().forEach (library) ->
       lat = library.lat
       lng = library.lng
-      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postal}<br>#{library.phone}"
+      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postal}<br>#{library.phone}<br><a href='#{library.link}' target='_blank'>More Info"
       markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
     window.map.addLayer(markers)
     window.markers.push(markers)

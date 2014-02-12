@@ -3,11 +3,13 @@ window.markers = []
 createMarkers = -> 
   markers = new L.MarkerClusterGroup()
   Libraries.find().forEach (library) ->
-    console.log library
     lat = library.lat
     lng = library.lng
     popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postal}<br>#{library.phone}<br><a href='#{library.link}' target='_blank'>More Info</a>"
-    markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
+    blueMarker = L.AwesomeMarkers.icon
+      icon: 'medkit',
+      prefix: 'fa'
+    markers.addLayer(new L.marker([lat,lng], {icon: blueMarker}).bindPopup(popup))
   window.map.addLayer(markers)
   window.markers.push(markers)
   # turn off spinner - loaded
@@ -49,7 +51,10 @@ Template.search_city.events
       lat = library.lat
       lng = library.lng
       popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postal}<br>#{library.phone}<br><a href='#{library.link}' target='_blank'>More Info"
-      L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
+      blueMarker = L.AwesomeMarkers.icon
+        icon: 'medkit',
+        prefix: 'fa'
+      L.marker([lat,lng], {icon: blueMarker}).addTo(window.map).bindPopup(popup)
   'click #reset_button': ->
     # clear all markers
     layers = window.map._layers
@@ -61,7 +66,10 @@ Template.search_city.events
       lat = library.lat
       lng = library.lng
       popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postal}<br>#{library.phone}<br><a href='#{library.link}' target='_blank'>More Info"
-      markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
+      blueMarker = L.AwesomeMarkers.icon
+        icon: 'medkit',
+        prefix: 'fa'
+      markers.addLayer(new L.marker([lat,lng], {icon: blueMarker}).bindPopup(popup))
     window.map.addLayer(markers)
     window.markers.push(markers)
 
